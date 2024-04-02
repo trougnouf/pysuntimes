@@ -67,20 +67,6 @@ def get_twilight_and_golden_hour_times(date, lat, lon, utc=False):
     astronomical_twilight_begin = observer.previous_rising(sun, use_center=True)
     astronomical_twilight_end = observer.next_setting(sun, use_center=True)
 
-    ## Use sunrise and sunset times to approximate golden hour times
-    #sunrise = observer.previous_rising(sun, use_center=True).datetime()
-    #sunset = observer.next_setting(sun, use_center=True).datetime()
-
-    ## Assuming golden hour is approximately 1 hour after sunrise and 1 hour before sunset
-    #golden_hour_morning_end = sunrise + datetime.timedelta(hours=1)
-    #golden_hour_evening_start = sunset - datetime.timedelta(hours=1)
-
-    ## Since we use civil twilight times as proxies for golden hour start/end, no change needed
-    #golden_hour_morning_start = civil_twilight_begin.datetime()
-    #golden_hour_evening_end = civil_twilight_end.datetime()
-
-
-
     if utc:
         return {
         # UTC Times in chronological order
